@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Categories = (props) => {
+const Categories = ({ items }) => {
   const [acItem, setItems] = useState(0);
 
   const onSelectItem = index => setItems(index);
@@ -8,14 +8,14 @@ const Categories = (props) => {
   return (
     <div className="categories">
       <ul>
-        {props.items.map((item, index) => {
+        {items && items.map((item, index) => {
           return (
-            <li
+          <li
               className={acItem === index ? 'active' : ''}
               onClick={() => onSelectItem(index)}
               key={`${item}_${index}`}>
               {item}
-            </li>);
+          </li>);
         })}
       </ul>
     </div>
