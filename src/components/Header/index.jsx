@@ -14,7 +14,7 @@ function Header() {
           </div>
         </div>
         <div className="header__cart">
-          <Button myClass={'button--cart'} myClick={(e) => { console.log(e.target) }}>
+          <Button myClass={'button--cart'}>
             <span>520 ₽</span>
             <div className="button__delimiter"></div>
             <svg
