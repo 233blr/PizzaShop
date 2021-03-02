@@ -11,10 +11,11 @@ const SortPopup = () => {
 
   useEffect(() => {
     document.body.addEventListener('click', handelOutsideClick);
+    console.log(sortRef)
   }, []);
 
   return (
-    <div className="sort">
+    <div ref={sortRef} className="sort">
       <div className="sort__label">
         <svg
           width="10"
