@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     axios.get('https://pizzashop-76313-default-rtdb.firebaseio.com/pizzas.json')
       .then((res => setPizzas(res.data)))
-      .catch(error => console.log(error))
+      .catch(error => console.log(`[App.js] ${error}`))
   }, [])
 
   return (
