@@ -3,18 +3,20 @@ import React, { useState, useEffect, useRef } from 'react';
 const SortPopup = ({ items }) => {
   const [visiblePopup, setVisiblePopup] = useState(false);
   const [acItem, setItems] = useState(0);
-  const [text, setText] = useState('популярности');
-
   const sortRef = useRef();
+  const activeLabel = items[acItem].name;
 
-  const onSelectItem = (item, index) => {
-    setText(item);
+  const visiblePopupHandler = () => setVisiblePopup(!visiblePopup);
+
+  const handelOutsideClick = (e) => {
+    if (!e.composedPath().includes(sortRef.current)) {
+      setVisiblePopup(false)
+    }
+  };
+
+  const onSelectItem = (index) => {
     setItems(index);
     setVisiblePopup(false);
-  };
-  const visiblePopupHandler = () => setVisiblePopup(!visiblePopup);
-  const handelOutsideClick = (e) => {
-    if (!e.composedPath().includes(sortRef.current)) { setVisiblePopup(false) }
   };
 
   useEffect(() => {
@@ -38,15 +40,20 @@ const SortPopup = ({ items }) => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={visiblePopupHandler}>{text}</span>
+        <span onClick={visiblePopupHandler}>{activeLabel}</span>
       </div>
-      {visiblePopup && <div className="sort__popup">
+      {visiblePopup && (<div className="sort__popup">
         <ul>
-          {items && items.map((item, index) => (<li className={acItem === index ? 'active' : ''}
-            onClick={() => onSelectItem(item, index)} key={`${item}_${index}`}>{item}</li>))}
+
+          {items && items.map((obj, index) => (
+            <li className={acItem === index ? 'active' : ''}
+              onClick={() => onSelectItem(index)}
+              key={`${obj.type}_${index}`}>{obj.name}
+            </li>
+          ))}
+
         </ul>
-      </div>
-      }
+      </div>)}
     </div>
   )
 }
