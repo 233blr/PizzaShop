@@ -11,10 +11,11 @@ const App = () => {
   useEffect(() => {
     //Firebase
     // axios.get('https://pizzashop-76313-default-rtdb.firebaseio.com/pizzas.json')
+
     //json-server
     axios.get('http://localhost:3001/pizzas')
       .then(({ data }) => { dispatch(setPizzas(data)) })
-      .catch(error => console.log('[App.js]', error))
+      .catch(error => console.log(error))
   }, []);
 
   return (
