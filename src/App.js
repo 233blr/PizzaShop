@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { Header } from './components';
 import { Home, Cart } from './pages';
-import axios from 'axios';
+// import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { setPizzas } from './redux/actions/pizzas';
+import { fetchPizzas } from './redux/actions/pizzas';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -13,9 +13,11 @@ const App = () => {
     // axios.get('https://pizzashop-76313-default-rtdb.firebaseio.com/pizzas.json')
 
     //json-server
-    axios.get('http://localhost:3001/pizzas')
-      .then(({ data }) => { dispatch(setPizzas(data)) })
-      .catch(error => console.log(error))
+    //   axios.get('http://localhost:3001/pizzas')
+    //     .then(({ data }) => { dispatch(setPizzas(data)) })
+    //     .catch(error => console.log(error))
+
+    dispatch(fetchPizzas())
   }, []);
 
   return (
