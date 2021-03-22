@@ -5,41 +5,30 @@ import PropTypes from 'prop-types';
 const PizzaBlock = ({ name, imageUrl, price, types, sizes }) => {
   const doughTypes = ['тонкое', 'традиционное'];
   const pizzaSize = [26, 30, 40];
-
   const [activeType, setActiveType] = useState(types[0]);
   const [activeSize, setActiveSize] = useState(sizes[0]);
-
   const onSelectType = index => setActiveType(index);
   const onSelectSize = size => setActiveSize(size);
 
   return (
     <div className="pizza-block">
-      <img
-        className="pizza-block__image"
-        src={imageUrl}
-        alt="Pizza"
-      />
+      <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
       <h4 className="pizza-block__title">{name}</h4>
       <div className="pizza-block__selector">
-
         <ul>
-          {doughTypes.map((type, index) => <li key={`${type}_${index}`} onClick={() => onSelectType(index)}
-            className={classNames({
-              active: activeType === index, disabled: !types.includes(index),
-            })}>
+          {doughTypes.map((type, index) => <li key={`${type}_${index}`}
+            onClick={() => onSelectType(index)}
+            className={classNames({ active: activeType === index, disabled: !types.includes(index) })}>
             {type}
           </li>)}
         </ul>
-
         <ul>
-          {pizzaSize.map((size, index) => <li key={`${size}_${index}`} onClick={() => onSelectSize(size)}
-            className={classNames({
-              active: activeSize === size, disabled: !sizes.includes(size),
-            })}>
+          {pizzaSize.map((size, index) => <li key={`${size}_${index}`}
+            onClick={() => onSelectSize(size)}
+            className={classNames({ active: activeSize === size, disabled: !sizes.includes(size) })}>
             {size} см.
           </li>)}
         </ul>
-
       </div>
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">от {price} ₽</div>
