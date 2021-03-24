@@ -1,4 +1,4 @@
-Интернет-магазин по заказу пиццы - **React Pizza**
+Online pizza store
 
 
 **Stack:**
