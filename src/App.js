@@ -1,15 +1,16 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+
 import { Header } from './components';
 import { Home, Cart } from './pages';
+import { Route } from 'react-router-dom';
 
-const App = () => {
+function App() {
   return (
     <div className="wrapper">
       <Header />
       <div className="content">
-        <Route exact path="/" component={Home} exact />
-        <Route exact path="/cart" component={Cart} />
+        <Route path="/" component={Home} exact />
+        <Route path="/cart" component={Cart} exact />
       </div>
     </div>
   );
