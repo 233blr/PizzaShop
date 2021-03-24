@@ -4,7 +4,7 @@ Online pizza store
 
 **Stack:**
 
-- ReactJS + хуки
+- ReactJS
 - React Router
 - Redux
 - Redux thunk
