@@ -11,3 +11,11 @@ Online pizza store
 - json-server
 - Axios
 - classnames
+
+
+*note*
+
+__use node 14.21.3__
+
+_yarn run server_
+_npm start_
